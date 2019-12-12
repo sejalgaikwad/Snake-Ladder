@@ -4,9 +4,11 @@ echo "Welcome to Snake & Ladder "
 
 position=0
 endPosition=100
+diceCount=0
 while [ $position -lt $endPosition ]
 do
 	diceRandom=$(($RANDOM%6 +1 ))
+	((diceCount++))
 	option=$(($RANDOM%3))
 
 	case $option in
@@ -27,7 +29,8 @@ do
 				then
 					position=$(($postition-$diceRandom))
 				else
-					echo "Position--> " $position
+					echo "Position " $position
 				fi
 done
 
+echo "Number of times the dice was played to win the game:- "$diceCount
